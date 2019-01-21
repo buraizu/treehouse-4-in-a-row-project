@@ -9,15 +9,14 @@ class Board {
     * Generates 2D array of spaces.
     * @return {array}   An array of space objects
   */
-
   createSpaces() {
     const spaces = [];
-    for(let x = 0; x < this.columns.length; x++) {
+    for(let x = 0; x < this.columns; x++) {
       const column = [];
 
-      for(let y = 0; y < this.rows.length; y++) {
+      for(let y = 0; y < this.rows; y++) {
         const s = new Space(x, y);
-        column.push(space);
+        column.push(s);
       }
       spaces.push(column);
     }
