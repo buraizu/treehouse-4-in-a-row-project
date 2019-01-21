@@ -23,13 +23,12 @@ class Board {
     }
     return spaces;
   }
-}
 
-// class Space {
-//   constructor(x, y) {
-//     this.x = x;
-//     this.y = y;
-//     this.id = `space-${x}-${y}`;
-//     this.token = null;
-//   }
-// }
+  drawHTMLBoard() {
+    for(let column of this.spaces) {   // Iterates over board columns in spaces array
+      for(let space of column) {       // Space objects contained within column arrays
+        space.drawSVGSpace();
+      }
+    }
+  }
+}

@@ -8,21 +8,28 @@ class Game {
 /**
   * Creates two player objects
   * @return {array}   An array of two player objects.
-*/
-
+  */
   createPlayers() {
     const players = [new Player('Player 1', 1, '#e15258', true),
                      new Player('Player 2', 2, '#e59a13')];
     return players;
   }
 
-}
+  /**
+   * Returns active player.
+   * @return {Object}   player - The active player.
+   */
+  get activePlayer() {
+    return this.players.find( (p) => p.active);
+  }
 
-// class Player {
-//   constructor(name, id, color, active = false) {
-//     this.name = name;
-//     this.id = id;
-//     this.color = color;
-//     this.active = active;
-//     this.tokens = this.createTokens(21);
-//   }
+/*
+* Gets game ready for play
+*/
+  startGame() {
+    this.board.drawHTMLBoard();
+    this.activePlayer.activeToken.drawHTMLToken();
+    this.ready = true;
+  }
+
+}
